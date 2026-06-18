@@ -1,0 +1,21 @@
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+vectorstore/
+*.pdf
+.env
+.env.*
+# IDE / editor
+.vscode/
+.idea/
+
+# Virtual environments
+.venv/
+
+# Build / distribution
+dist/
+build/
+
+# OS files
+.Trash-*
