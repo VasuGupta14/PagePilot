@@ -1,0 +1,48 @@
+# PagePilot – Context-Aware Browser Assistant
+
+PagePilot is an AI-powered Chrome extension that enables users to interact with and query the content of any webpage in real time. Leveraging a custom Retrieval-Augmented Generation (RAG) pipeline, users can ask questions about research papers, technical documentation, blogs, and other knowledge-intensive webpages without manually reading the entire content.
+
+## Features
+
+* Extracts webpage content dynamically using Chrome Extension APIs.
+* Splits large documents into context-aware chunks using `RecursiveCharacterTextSplitter`.
+* Generates embeddings using `SentenceTransformers` and stores them in a `FAISS` vector index.
+* Retrieves semantically relevant context for user queries through similarity search.
+* Utilizes `Ollama LLaMA 3.2` via LangChain to generate context-aware responses.
+* Provides a seamless chat interface directly within the browser.
+
+## Architecture
+
+```text
+User
+│
+├── Chrome Extension
+│       └── Extract Webpage Content
+│
+├── FastAPI Backend
+│       ├── Text Chunking
+│       ├── Embedding Generation
+│       ├── FAISS Vector Store
+│       └── Context Retrieval
+│
+└── LLaMA 3.2 (Ollama)
+        └── Response Generation
+```
+
+## Tech Stack
+
+| Component    | Technologies                               |
+| ------------ | ------------------------------------------ |
+| Frontend     | HTML, JavaScript, Chrome Extension APIs    |
+| Backend      | Python, FastAPI                            |
+| LLM          | Ollama, LLaMA 3.2                          |
+| RAG Pipeline | LangChain, FAISS                           |
+| Embeddings   | SentenceTransformers (`BAAI/bge-small-en`) |
+
+## Future Improvements
+
+* Multi-page context retention
+* Citation-aware responses
+* Hybrid retrieval mechanisms
+* Conversation history support
+* Support for additional embedding models
